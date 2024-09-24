@@ -1,0 +1,46 @@
+{
+    "configurations": [
+        {
+            "name": "Build and debug this file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [{ "name": "ASAN_OPTIONS", "value": "detect_leaks=0" }],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Skip stdlib-related files",
+                    "text": "-interpreter-exec console \"skip -gfi stdlib/*.c\"",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Skip libio-related files",
+                    "text": "-interpreter-exec console \"skip -gfi libio/*.c\"",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Skip linux-related files",
+                    "text": "-interpreter-exec console \"skip -gfi linux/*.c\"",
+                    "ignoreFailures": true
+                }                
+            ],
+            "preLaunchTask": "Build this file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ],
+    "version": "2.0.0"
+}
