@@ -12,6 +12,7 @@
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
                 "-O0",
                 "-Wall",
+                "-lm",
                 "-fsanitize=address"
             ],
             "options": {
