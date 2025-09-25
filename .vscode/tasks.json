@@ -3,7 +3,7 @@
         {
             "type": "cppbuild",
             "label": "Build this file",
-            "command": "/usr/bin/gcc",
+            "command": ".vscode/build.sh",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -16,7 +16,7 @@
                 "-fsanitize=address"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                // Note: build.sh script changes cwd to file directory
             },
             "problemMatcher": [
                 "$gcc"
